@@ -1,3 +1,102 @@
-body {
+* {
   box-sizing: border-box;
+  background-color: black;
+  color: white;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+*::selection {
+  background-color: hotpink;
+  color: black;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Cinzel", serif;
+  color: blueviolet;
+}
+.header {
+  padding: 60px 170px;
+  padding-top: 80px;
+  text-align: center;
+  position: relative;
+}
+
+.main {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  padding: 4px 8px;
+  color: yellow;
+}
+
+.nav-link:hover {
+  color: black;
+  background-color: hotpink;
+}
+
+.nav-link:active {
+  color: hotpink;
+  background-color: aqua;
+}
+
+[src] {
+  margin: 10px 10px;
+  max-height: 199px;
+}
+
+.main > * + * {
+  margin-top: 48px;
+}
+
+.main > * {
+  border-top: 8px solid blueviolet;
+  padding: 0px 10px;
+}
+
+.main > *:first-child {
+  border-top: none;
+}
+
+.emoji-h::after {
+  content: "👨‍💻";
+}
+
+.experience-heading {
+  display: inline-block;
+}
+
+.experience-subheading {
+  display: inline-block;
+}
+
+.hire-me {
+  position: absolute;
+  right: 50px;
+  top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  background: plum;
+  color: yellow;
+}
+
+.article-heading {
+  position: relative;
+  left: -10px;
 }
