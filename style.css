@@ -41,16 +41,23 @@ h1,
 h2,
 h3 {
   font-family: "Cinzel", serif;
-  color: blueviolet;
+  color: var(--accent-text);
 }
 
 body {
+  --backround-color: black;
+  --text-color: white;
+  --accent-color: hotpink;
+  --accent-text: blueviolet;
+  --nav-link-active-bg-color: aqua;
+  --hire-me-bg-color: plum;
+  --hire-me-text-color: yellow;
   margin: 0;
 }
 
 *::selection {
-  background-color: hotpink;
-  color: black;
+  background-color: var(--accent-color);
+  color: var(--backround-color);
 }
 
 .header {
@@ -58,7 +65,11 @@ body {
   padding-top: 0;
   text-align: center;
   position: relative;
-  background-image: linear-gradient(90deg, black, white);
+  background-image: linear-gradient(
+    90deg,
+    var(--theme-color),
+    var(--text-color)
+  );
 }
 
 .main {
@@ -66,28 +77,42 @@ body {
   margin: 0 auto;
 }
 
-.navigation {
-}
-
 .nav-link {
   padding: 4px 8px;
-  color: yellow;
+  color: var(--hire-me-text-color);
+  /*transition: background-color 0.5s ease-in-out;*/
+}
+
+.nav-link:focus {
+  /*background-color: var(--accent-color);
+  outline-color: var(--backround-color);*/
+  outline-style: dotted;
 }
 
 .nav-link:hover {
-  color: black;
-  background-color: hotpink;
+  color: var(--backround-color);
+  background-color: var(--accent-color);
 }
 
 .nav-link:active {
-  color: hotpink;
-  background-color: aqua;
+  color: var(--accent-color);
+  background-color: var(--nav-link-active-bg-color);
 }
 
 [src] {
   margin: 10px 10px;
   max-height: 199px;
   margin-top: 40px;
+  border-top-left-radius: 0.2rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    max-width: 80ch;
+  }
 }
 
 .main > * + * {
@@ -96,17 +121,32 @@ body {
 
 @media screen and (min-width: 768px) {
   .main > * + * {
-    margin-top: 5rem;
+    margin-top: 8rem;
   }
 }
 
-.main > * {
-  border-top: 8px solid blueviolet;
-  padding: 0px 10px;
+.main > *:first-child {
+  margin-top: 4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .main-article {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+  }
+
+  .main-article-content {
+    margin-top: 4rem;
+  }
 }
 
 .main > *:first-child {
   border-top: none;
+}
+
+.main-article {
+  border-top: 8px solid var(--accent-text);
+  padding: 0px 10px;
 }
 
 .emoji-h::after {
@@ -132,11 +172,20 @@ body {
     top: 20px;
     padding: 20px;
     border-radius: 10px;
-    background: plum;
-    color: yellow;
+    opacity: 0.5;
+    background: var(--hire-me-bg-color);
+    color: var(--hire-me-text-color);
+    transform-origin: top right;
+    transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
   }
 
-  @media screen and (min-width: 992px) {
+  .header:hover .hire-me,
+  .header:focus-within .hire-me {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  @media screen and (min-width: 926px) {
     .hire-me {
       position: fixed;
     }
@@ -152,7 +201,7 @@ body {
     }
   }
 
-  .article-heading {
+  .main-article-heading {
     position: relative;
     left: -10px;
   }
@@ -160,6 +209,10 @@ body {
 .outro-cv {
   border-top-left-radius: 0.2rem;
   border-top-right-radius: 1rem;
-  background-color: blueviolet;
-  background-image: linear-gradient(90deg, black, white);
+  background-color: var(--accent-text);
+  background-image: linear-gradient(
+    90deg,
+    var(--theme-color),
+    var(--text-color)
+  );
 }
